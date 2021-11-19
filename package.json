@@ -1,0 +1,11 @@
+{
+  "name": "75_action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "cli-progress": "^3.9.1",
+    "node-fetch": "2"
+  }
+}
