@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const cheerio = require('cheerio')
 const fetch = require('node-fetch')
 const cliProgress = require('cli-progress')
@@ -53,6 +54,11 @@ function getCollections() {
   })
 }
 
+function writeFile(json) {
+  const p = path.resolve(__dirname, './data.json')
+  fs.writeFileSync(p, JSON.stringify(json, null, 2))
+}
+
 getCollections().then(collections => {
   const totalLen = collections.length
   let doneLen = 0
@@ -82,7 +88,8 @@ getCollections().then(collections => {
       if (doneLen >= totalLen) {
         bar1.stop()
         console.log(`抓取完成，总共${collections.length}个集合，${all.length}篇文章`)
-        console.log(JSON.stringify(all))
+        // console.log(JSON.stringify(all))
+        writeFile(all)
       }
     })
   })
