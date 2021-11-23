@@ -7,7 +7,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 8 * * 1" # 每周一执行
+    - cron: "0 0,8,16 * * *" # 每天0 8 16点执行（有8小时时差）
 
 jobs:
   build:
