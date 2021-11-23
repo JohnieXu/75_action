@@ -68,7 +68,7 @@ getCollections().then(collections => {
   bar1.start(collections.length, 0)
   
   collections.map((i, { title, url, date }) => {
-    getArticleDoc(url).then(getArticles).then(list => {
+    getArticleDoc(url).then(getArticles).then(list => list.map((_, item) => ({ ...item, issue: title, date }))).then(list => {
       all = [...all, ...list]
     }).catch(e => {
       console.error(e)
@@ -89,6 +89,7 @@ getCollections().then(collections => {
         bar1.stop()
         console.log(`抓取完成，总共${collections.length}个集合，${all.length}篇文章`)
         // console.log(JSON.stringify(all))
+        all = all.sort((a, b) => b.date.localeCompare(a.date)) // date倒序排列
         writeFile(all)
       }
     })
