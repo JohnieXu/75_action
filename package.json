@@ -12,5 +12,8 @@
     "commander": "^8.3.0",
     "mkdirp": "^1.0.4",
     "node-fetch": "2"
+  },
+  "scripts": {
+    "test": "echo \"no test config\""
   }
 }
