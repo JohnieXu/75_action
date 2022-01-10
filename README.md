@@ -30,3 +30,17 @@ npx 75_action random n // n为任意大于0的数（当总文章数小于n时返
 ```bash
 npx 75_action fetch
 ```
+
+4.查看n个期刊的全部文章
+
+```bash
+npx 75_action issue n // n为任意大于0的数
+```
+
+5.根据关键词搜索
+
+> 根据文章标题、文章简介、文章链接进行模糊搜索，同时也可根据文章日期进行模糊匹配；例如搜索 2022 年的文章，传参 `-d "2022"`，搜索 2022-01 的文章，传参 `-d "2022-01"`
+
+```bash
+npx 75_action search -k <keyword> -d <date>
+```
