@@ -2,6 +2,7 @@
 
 [![TEST](https://github.com/JohnieXu/75_action/actions/workflows/run.yml/badge.svg)](https://github.com/JohnieXu/75_action/actions/workflows/run.yml)
 [![FETCH](https://github.com/JohnieXu/75_action/actions/workflows/fetch.yml/badge.svg)](https://github.com/JohnieXu/75_action/actions/workflows/fetch.yml)
+[![NPM downloads](https://img.shields.io/npm/dm/75_action)](https://www.npmjs.com/package/75_action)
 
 > 这是一个自动抓取奇舞周刊全部文章的脚本，支持 GitHub Action 自动抓取和CLI工具使用
 
