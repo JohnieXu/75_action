@@ -32,19 +32,20 @@ function hasKeyword(keyword, source) {
 /**
  * 75_action -h // 帮助说明
  * 75_action -v // version
- * 75_action -d // debug
- * 75_action // 随机1篇文章（暂未实现）
- * 7t_action // 帮助说明
+ * 75_action [command] -d // debug
+ * 75_action random // 随机1篇文章（暂未实现）
  * 75_action random [number] // 随机n篇文章
  * 75_action fetch // 抓取全部文章
+ * 75_action issue [number] // 查看最新周刊的文章
+ * 75_action search -k <keyword> -t <date> // 搜索文章
  */
 
-program.version(`75_action ${packageJson.version}`)
+program.version(`v${packageJson.version}`, '-v --version', '打印版本号')
        .usage('[<command> [options]]')
 
 program.command('random [number]')
-       .description('随机获取n篇文章链接')
-       .option('-d, --debug', '开启debug模式')
+       .description('随机获取 n 篇文章链接')
+       .option('-d, --debug', '开启 debug 模式')
        .action((number, options) => {
          number = number || 1
          if (options.debug) {
@@ -62,7 +63,7 @@ program.command('random [number]')
 
 program.command('fetch')
        .description('重新抓取文章链接')
-       .option('-d, --debug', '开启debug模式')
+       .option('-d, --debug', '开启 debug 模式')
        .action((options) => {
           if (options.debug) {
             console.log(options)
@@ -74,8 +75,8 @@ program.command('fetch')
        })
 
 program.command('issue [number]')
-       .description('返回最新周刊内文章')
-       .option('-d, --debug', '开启debug模式')
+       .description('返回最新周刊的文章')
+       .option('-d, --debug', '开启 debug 模式')
        .action((number, options) => {
           number = number || 1
           if (options.debug) {
@@ -117,7 +118,7 @@ program.command('issue [number]')
 
 program.command('search')
        .description('搜索文章')
-       .option('-d, --debug', '开启debug模式')
+       .option('-d, --debug', '开启 debug 模式')
        .option('-k, --keyword <keyword>', '搜索关键词：文章标题、简介、链接')
        .option('-t, --date <date>', '文章所在日期，例如：2022-01-07、2022-01、2022等')
        .action((options) => {
@@ -147,6 +148,16 @@ program.command('search')
           process.exit(1)
         })
       })
+
+program.addHelpText('after', `
+Example:
+  75_action random              随机一篇文章
+  75_action random n            随机 n 篇文章
+  75_action fetch               手动更新文章数据
+  75_action issue n             查看 n 个期刊的全部文章
+  75_action search -k "Fiber"   搜索标题、简介、链接包含 Fiber 的文章
+  75_action search -k "Fiber" -t "2022"   搜索标题、简介、链接包含 Fiber 并且日期是 2022 年的文章
+`)
 
 program.parse(process.argv)
        
