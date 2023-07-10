@@ -6,11 +6,11 @@
 
 > 这是一个自动抓取奇舞周刊全部文章的脚本，支持 GitHub Action 自动抓取和 CLI 工具使用
 
-自动抓取为每天0/8/16点执行，抓取完成后生成的文章数据存到了 Action 的 artifact 中，下载得到`artifact.zip`解压后的`data.json`就是抓取的数据
+自动抓取为每天0/8/16点执行，抓取完成后生成的文章数据存到了 Action 的 artifact 中，下载得到 `artifact.zip` 解压后的 `data.json` 就是抓取的数据
 
 ## CLI 使用
 
-> 抓取到的数据本地缓存在 home 目录`.75_action/.data.json`中，缓存有效期24h
+> 抓取到的数据本地缓存在 `~/.75_action/.data.json` 中，缓存有效期24h
 
 1.随机返回一篇文章链接
 
