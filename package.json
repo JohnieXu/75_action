@@ -1,6 +1,6 @@
 {
   "name": "75_action",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "index.js",
   "license": "MIT",
   "description": "一个自动抓取奇舞周刊全部文章的脚本，支持 GitHub Action 自动抓取和 CLI 工具使用",
@@ -8,7 +8,12 @@
     "type": "git",
     "url": "git@github.com:JohnieXu/75_action.git"
   },
-  "keywords": ["75_action", "75_weekly", "weekly.75.team", "cli"],
+  "keywords": [
+    "75_action",
+    "75_weekly",
+    "weekly.75.team",
+    "cli"
+  ],
   "author": "JohnieXu",
   "bin": {
     "75_action": "bin/75_action.js"
