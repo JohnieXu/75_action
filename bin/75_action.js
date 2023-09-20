@@ -3,6 +3,7 @@
 const program = require('commander')
 const packageJson = require('../package.json')
 const fetch = require('../lib/fetch')
+const { syncLocalData } = require('../lib/sync')
 
 function random(number, list) {
   const min = 0
@@ -72,6 +73,16 @@ program.command('fetch')
             console.log(`抓取完成，总共${collections.length}个集合，${articles.length}篇文章`)
             process.exit()
           })
+       })
+
+program.command('sync')
+       .description('同步本地数据的线上')
+       .option('-d, --debug', '开启 debug 模式')
+       .action((options) => {
+          if (options.debug) {
+            console.log(options)
+          }
+          syncLocalData({ progress: true })
        })
 
 program.command('issue [number]')

@@ -19,6 +19,7 @@
     "75_action": "bin/75_action.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.34.0",
     "cheerio": "^1.0.0-rc.10",
     "cli-progress": "^3.9.1",
     "commander": "^8.3.0",
